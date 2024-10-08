@@ -54,7 +54,10 @@ def main():
 
     if st.button("Predict"):
         pred = model.predict(data_new)
-        st.success("No You Don't Have Disease {:.2f} lakhs".format(pred[0]))
+        if pred==0:
+            st.success("No... You Don't Have Heart Disease".format(pred[0]))
+        else:
+            st.success("Yes... You Have Heart Disease".format(pred[0]))
 
 if __name__ == '__main__':
     main()
